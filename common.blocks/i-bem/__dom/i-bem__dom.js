@@ -1,3 +1,6 @@
+/**
+ * @module i-bem__dom
+ */
 modules.define(
     'i-bem__dom',
     ['i-bem', 'i-bem__internal', 'identify', 'objects', 'functions', 'jquery', 'dom'],
@@ -218,11 +221,15 @@ function removeDomNodeFromBlock(block, domNode) {
         block.domElem = block.domElem.not(domNode);
 }
 
+/**
+ *
+ * @class DOM
+ * @extends BEM
+ */
 var DOM = BEM.decl('i-bem__dom',/** @lends DOM.prototype */{
     /**
-     * @class Base block for creating BEM blocks that have DOM representation
-     * @constructs
-     * @private
+     * @construct
+     * @protected
      * @param {jQuery} domElem DOM element that the block is created on
      * @param {Object} params Block parameters
      * @param {Boolean} [initImmediately=true]

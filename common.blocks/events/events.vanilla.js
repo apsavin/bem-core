@@ -1,14 +1,13 @@
 /**
- * Events module
  *
  * Copyright (c) 2010-2013 Filatov Dmitry (alpha@zforms.ru)
  * Dual licensed under the MIT and GPL licenses:
  * http://www.opensource.org/licenses/mit-license.php
  * http://www.gnu.org/licenses/gpl.html
  *
+ * @module events
  * @version 1.0.4
  */
-
 modules.define('events', ['identify', 'inherit'], function(provide, identify, inherit) {
 
 var undef,
@@ -17,7 +16,11 @@ var undef,
         return identify(fn) + (ctx? identify(ctx) : '');
     },
 
-    Event = /** @lends Event.prototype */ inherit({
+    /**
+     * @class
+     * @alias events:Event
+     */
+    Event = inherit(/** @lends Event.prototype */{
         __constructor: function(type, target) {
             this.type = type;
             this.target = target;
@@ -44,7 +47,10 @@ var undef,
             return this._isPropagationStopped;
         }
     }),
-
+    /**
+     * @class
+     * @alias events:Emitter
+     */
     Emitter = /** @lends Emitter.prototype */{
         /**
          * Adding event handler

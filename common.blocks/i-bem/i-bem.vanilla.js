@@ -1,3 +1,6 @@
+/**
+ * @module i-bem
+ */
 modules.define(
     'i-bem',
     ['inherit', 'identify', 'next-tick', 'objects', 'functions', 'events', 'events__channels'],
@@ -121,11 +124,15 @@ function convertModHandlersToMethods(props) {
     }
 }
 
+/**
+ *
+ * @class BEM
+ * @extends events:Emitter
+ */
 var BEM = inherit(events.Emitter, /** @lends BEM.prototype */ {
     /**
-     * @class Base block for creating BEM blocks
      * @constructs
-     * @private
+     * @protected
      * @param {Object} mods Block modifiers
      * @param {Object} params Block parameters
      * @param {Boolean} [initImmediately=true]
@@ -523,7 +530,6 @@ var BEM = inherit(events.Emitter, /** @lends BEM.prototype */ {
     /**
      * Declares blocks and creates a block class
      * @static
-     * @protected
      * @param {String|Object} decl Block name (simple syntax) or description
      * @param {String} decl.block|decl.name Block name
      * @param {String} [decl.baseBlock] Name of the parent block
