@@ -96,8 +96,8 @@ exports.apply = BEMContext.applyAsync = function BEMContext_applyAsync(context) 
     var ctx = new BEMContext(context || this, oldApply);
     ctx._buf = ctx.apply();
     return Vow
-        .allResolved(ctx.__queue)
-        .always(function() {
+        .all(ctx.__queue)
+        .then(function() {
             return ctx._buf;
         });
 };
